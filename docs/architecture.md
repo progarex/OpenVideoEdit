@@ -8,7 +8,7 @@
 - `TrimExporter.kt`: bounded-buffer `MediaExtractor` to `MediaMuxer` sample-copy export.
 - `app/src/test/java/org/libreframe/app/EditProjectTest.kt`: trim-range and source-preservation tests.
 
-This prototype uses platform Views, an executor, and JSON/`AtomicFile`; it does not yet follow the preferred Compose, coroutines/Flow, Room, DataStore, or AndroidX lifecycle/background architecture. M1 must migrate to those components (or document a reviewed alternative) before adding longer-running editing and export jobs.
+This prototype uses platform Views, an executor, and JSON/`AtomicFile`; it does not yet follow the preferred Compose, coroutines/Flow, Room, DataStore, or AndroidX lifecycle/background architecture. The [release roadmap](release-roadmap.md) proposes an M1 alternative: retain Views and `AtomicFile`, add AndroidX lifecycle/Activity Result APIs and structured coroutine job state, and validate schema/recovery behavior before expanding editing. Record and review that architecture decision before implementation; this is not a completed migration.
 
 Projects reference a persisted Storage Access Framework URI; they do not copy source media. Export uses a user-selected destination and removes the destination document on failure/cancellation where the provider allows deletion. An input grant may later be revoked; the app reports the error and asks for a new project rather than changing the source.
 
@@ -42,4 +42,6 @@ This list is a test plan, not evidence that these devices meet any acceptance ta
 
 ## Milestones
 
-M0 is incomplete: only import, metadata persistence/reopen, trim-range editing, preview, and best-effort sample-copy export exist. The text-overlay and audio-mix steps of the requested M0 vertical slice are not implemented. M1–M5 require separate implementation and verification against the feature matrix; do not infer completion from this scaffold.
+M0 is incomplete: only import, metadata persistence/reopen, trim-range editing, preview, and best-effort sample-copy export exist. The text-overlay and audio-mix steps of the requested M0 vertical slice are not implemented.
+
+The [release roadmap](release-roadmap.md) defines M1–M5 deliverables and release gates. M1 prioritizes build verification, recoverable drafts, media access, and reliable single-clip export for a proposed `0.2.0` alpha. M2 introduces the timeline and shared render graph; M3 completes the manual text/audio vertical slice; M4 adds layers and manual subtitles; M5 qualifies a public-beta candidate. This ordering supersedes expanding the M0 slice immediately. Every phase excludes AI features and requires separate implementation and verification against the feature matrix; do not infer completion from this scaffold or plan.

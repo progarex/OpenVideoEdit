@@ -25,11 +25,11 @@ No billing library, entitlement check, subscription, credit, ad, trial, premium 
 | Android Gradle Plugin 9.0.1 | Build-time Maven dependency only | Preserve its license/notice in any redistributed build tooling; no APK runtime code is intentionally added. |
 | JUnit 4.13.2 | Test-only Maven dependency | Preserve its license/notice for redistributed test/build artifacts. |
 | Fonts | No font file bundled; Android system fallback fonts only | Audit and record a license for every imported/bundled font before adding it. |
-| Models/weights/voices | None bundled or downloaded | Audit exact code and weight licenses, redistribution and commercial-output rights, language, size, and device needs before use. |
+| Models/weights/synthetic voices | None bundled or downloaded; excluded from every phase of the non-AI release roadmap | Do not introduce model downloads, inference SDKs, AI services, or synthetic voice packs as part of planned work. |
 | Music, sound effects, footage, stickers, templates, stock assets | None bundled | Record creator/source, exact license, attribution, redistribution, and export rights for each asset before adding it. |
 | Codecs | Platform extractor/muxer APIs; no codec binary bundled | Codec patent, profile, and distribution obligations require independent legal review. |
 
-No remote model, media-processing endpoint, or third-party asset source is configured. If network processing is added, obtain explicit consent that identifies the operation, data, destination, retention, and deletion policy; keep local editing independent of backend availability.
+No remote model, media-processing endpoint, or third-party asset source is configured. The [release roadmap](release-roadmap.md) excludes AI processing, whether local or remote, and does not plan a backend. Any future non-AI network feature requires a separate proposal and explicit consent identifying the operation, data, destination, retention, and deletion policy; keep local editing independent of backend availability.
 
 ## Name and release gates
 

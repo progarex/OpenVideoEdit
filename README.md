@@ -10,6 +10,8 @@ The first exporter copies encoded audio/video samples. It may start at the prece
 
 See [the feature matrix](docs/feature-matrix.md) for all F01–F75 statuses, [architecture and validation](docs/architecture.md), and [privacy and licensing](docs/privacy-and-licenses.md).
 
+The [release roadmap](docs/release-roadmap.md) proposes `0.2.0` as a reliable offline trimming alpha, followed by timeline editing, manual creative tools, layers/subtitles, and beta hardening. AI features are excluded from every planned phase; these are planned deliverables, not implemented capabilities.
+
 ## Build
 
 Requirements: JDK 17+, Android SDK Platform 36, and Android Gradle Plugin 9.0.1. The repository uses Gradle Kotlin DSL. If Gradle dependencies are unavailable, Android Studio can sync the project once Google Maven and Maven Central are reachable.
