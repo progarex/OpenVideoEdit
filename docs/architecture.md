@@ -8,6 +8,8 @@
 - `TrimExporter.kt`: bounded-buffer `MediaExtractor` to `MediaMuxer` sample-copy export.
 - `app/src/test/java/org/libreframe/app/EditProjectTest.kt`: trim-range and source-preservation tests.
 
+This prototype uses platform Views, an executor, and JSON/`AtomicFile`; it does not yet follow the preferred Compose, coroutines/Flow, Room, DataStore, or AndroidX lifecycle/background architecture. M1 must migrate to those components (or document a reviewed alternative) before adding longer-running editing and export jobs.
+
 Projects reference a persisted Storage Access Framework URI; they do not copy source media. Export uses a user-selected destination and removes the destination document on failure/cancellation where the provider allows deletion. An input grant may later be revoked; the app reports the error and asks for a new project rather than changing the source.
 
 Timestamps are integer microseconds. The current project graph contains one source and one trim interval only. The JSON has a `schemaVersion` marker, but there is no migration framework yet. Edits are saved explicitly; autosave, undo/redo, export-resume, proxies, and a recovery journal are not implemented.
